@@ -50,6 +50,31 @@ const Signin = () => {
         }
     }
 
+    const demoLog = async (e) => {
+        e.preventDefault();
+        const email = "demo@gmail.com";
+        const password = "1234";
+        try {
+
+            const result = await axios.post("https://portfoliobck.herokuapp.com/signin", { email, password });
+
+            if (result) {
+
+                const token = result.data.token;
+                const id = result.data.dat;
+
+                localStorage.setItem("token", token);
+                localStorage.setItem("useData", id)
+                setlocal({ token, id });
+                navigate("/form", { replace: true })
+            }
+
+        } catch (error) {
+            console.log(error.response.data.message);
+            window.alert(error.response.data.message);
+
+        }
+    }
 
     return (
         <>
@@ -82,6 +107,8 @@ const Signin = () => {
                                 </div>
                             </div>
                             <NavLink to="/form" > <button type="submit" onClick={postData} className="bt">Login</button></NavLink>
+                            <NavLink to="/form" > <button type="submit" onClick={demoLog} className="bt mt-3">Demo Login</button></NavLink>
+
                             <a href="/" className="mt-3" style={{ textDecoration: `none` }}> New User ? </a>
                             <NavLink to="/" className="cnt" style={{ textDecoration: `none`, marginBottom: `40px` }}>SIGNUP</NavLink>
 
