@@ -23,7 +23,7 @@ const Signup = () => {
     const postData = async (e) => {
         e.preventDefault();
         try {
-            const result = await axios.post("https://portfoliobck.herokuapp.com/", getData);
+            const result = await axios.post("https://portfolioback.onrender.com/", getData);
 
             if (result) {
 
