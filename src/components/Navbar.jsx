@@ -10,7 +10,7 @@ const Navbar = () => {
     const getName = async () => {
         try {
             const token = localStorage.getItem('token')
-            const result = await axios.get("https://portfoliobck.herokuapp.com/data/", {
+            const result = await axios.get("https://portfolioback.onrender.com/data/", {
                 headers: {
                     "authorization": token
                 }
