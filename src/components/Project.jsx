@@ -27,7 +27,7 @@ const Project = () => {
         }
         const token = localStorage.getItem('token');
         try {
-            const result = await axios.post("https://portfoliobck.herokuapp.com/data/", { data, token });
+            const result = await axios.post("https://portfolioback.onrender.com/data/", { data, token });
 
             if (result.status === 200) {
 
