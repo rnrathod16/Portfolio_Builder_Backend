@@ -12,7 +12,7 @@ const Portfolio = () => {
     const getdata = async () => {
         const token = localStorage.getItem('token')
         try {
-            const result = await axios.get("http://localhost:5000/data/", {
+            const result = await axios.get("https://portfolioback.onrender.com/data/", {
                 headers: {
                     "authorization": token
                 }
